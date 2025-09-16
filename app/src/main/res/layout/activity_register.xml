@@ -54,7 +54,7 @@
                         android:id="@+id/btnRegister"
                         android:layout_width="90dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="35dp"
+                        android:layout_marginStart="36dp"
                         android:background="@drawable/bg_button_register"
                         android:text="Đăng nhập"
                         android:textColor="@android:color/white"
