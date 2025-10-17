@@ -43,22 +43,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Chưa có tài khoản ?"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"/>
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnRegister"
-                        android:layout_width="90dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="16dp"
-                        android:background="@drawable/bg_button_register"
-                        android:text="Đăng ký"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"/>
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -83,12 +67,13 @@
             android:background="@drawable/bg_form_rounded"
             android:orientation="vertical"
             android:padding="24dp"
+            android:gravity="center"
             android:layout_marginTop="-40dp"> <!-- đẩy chồng lên header -->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng nhập"
+                android:text="Login"
                 android:layout_gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -98,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Vui lòng nhập thông tin bên dưới"
+                android:text="Please enter the information below"
                 android:textColor="#595757"
                 android:layout_marginTop="4dp"/>
 
@@ -118,7 +103,7 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Mật khẩu"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bg_edittext"
@@ -132,7 +117,7 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_btn_gradient"
-                android:text="Đăng nhập"
+                android:text="Login"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"/>
 
@@ -140,10 +125,31 @@
                 android:id="@+id/tvForgot"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quên mật khẩu ?"
+                android:text="Forgot password ?"
                 android:textColor="#7F7F7F"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="12dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Don't have an account ?"
+                    android:textSize="16sp"
+                    android:textColor="#7F7F7F"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign up"
+                    android:textColor="#FF7E5F"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

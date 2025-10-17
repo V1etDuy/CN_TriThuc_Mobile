@@ -14,7 +14,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="260dp"
-            android:background="@drawable/bg_header_gradient">
+            android:background="@drawable/bg_header_gradient"
+            >
             <!-- Đăng ký -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 xmlns:android="http://schemas.android.com/apk/res/android"
@@ -33,33 +34,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"/>
-
-                <LinearLayout
-                    android:id="@+id/rightGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Đã có tài khoản ?"
-                        android:textColor="@android:color/white"
-                        android:textSize="16sp"/>
-
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:id="@+id/btnRegister"
-                        android:layout_width="90dp"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="36dp"
-                        android:background="@drawable/bg_button_register"
-                        android:text="Đăng nhập"
-                        android:textColor="@android:color/white"
-                        android:textSize="14sp"/>
-                </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -83,12 +57,13 @@
             android:background="@drawable/bg_form_rounded"
             android:orientation="vertical"
             android:padding="24dp"
-            android:layout_marginTop="-40dp"> <!-- đẩy chồng lên header -->
+            android:layout_marginTop="-40dp"
+            android:gravity="center"> <!-- đẩy chồng lên header -->
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng ký"
+                android:text="Sign up"
                 android:layout_gravity="center_horizontal"
                 android:textStyle="bold"
                 android:textSize="20sp"
@@ -98,7 +73,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:text="Vui lòng nhập thông tin bên dưới"
+                android:text="Please enter the information below"
                 android:textColor="#595757"
                 android:layout_marginTop="4dp"/>
 
@@ -118,7 +93,7 @@
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:hint="Mật khẩu"
+                android:hint="Password"
                 android:inputType="textPassword"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/bg_edittext"
@@ -132,9 +107,31 @@
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/bg_btn_gradient"
-                android:text="Đăng ký"
+                android:text="Sign up"
                 android:textColor="@android:color/white"
                 android:textSize="16sp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="12dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Already registered ?"
+                    android:textSize="16sp"
+                    android:textColor="#7F7F7F"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sign in here"
+                    android:textColor="#FF7E5F"
+                    android:textStyle="bold"
+                    android:layout_marginStart="12dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
