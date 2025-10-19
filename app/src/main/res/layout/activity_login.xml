@@ -144,7 +144,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign up"
-                    android:textColor="#FF7E5F"
+                    android:textColor="#21D375"
                     android:textStyle="bold"
                     android:layout_marginStart="12dp"
                     android:textSize="16sp"/>

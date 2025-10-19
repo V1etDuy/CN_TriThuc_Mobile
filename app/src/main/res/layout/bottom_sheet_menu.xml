@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#F0F9F9"
+    android:padding="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:text="APP NAME"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#00BFA6"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="12dp" />
+
+    <!-- Nút tạo chat mới -->
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnNewChat"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_btn_gradient"
+        android:text="NEW CHAT"
+        android:textAllCaps="true"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:layout_marginBottom="20dp" />
+
+    <!-- Tiêu đề phần lịch sử -->
+    <TextView
+        android:id="@+id/tvChatHistory"
+        android:text="Chat History"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="#444444"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingTop="8dp" />
+
+    <!-- Danh sách các đoạn chat -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerChatList"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="8dp" />
+
+</LinearLayout>
