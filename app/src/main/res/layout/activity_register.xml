@@ -90,6 +90,18 @@
                 android:textSize="14sp"/>
 
             <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Username"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/bg_edittext"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:textSize="14sp"/>
+
+
+            <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
@@ -102,7 +114,7 @@
                 android:textSize="14sp"/>
 
             <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btnLogin"
+                android:id="@+id/btnSignup"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_marginTop="20dp"
