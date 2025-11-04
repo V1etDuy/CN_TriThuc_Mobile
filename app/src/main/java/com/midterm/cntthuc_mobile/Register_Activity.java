@@ -2,8 +2,10 @@ package com.midterm.cntthuc_mobile;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -12,6 +14,12 @@ import com.midterm.cntthuc_mobile.api_service.ApiClient;
 import com.midterm.cntthuc_mobile.api_service.ApiService;
 import com.midterm.cntthuc_mobile.auth.SignUpRequest;
 import com.midterm.cntthuc_mobile.auth.SignUpResponse;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import retrofit2.Callback;
 import retrofit2.Call;
 import retrofit2.Response;
@@ -58,16 +66,31 @@ public class Register_Activity extends AppCompatActivity {
                                 .putString("token", res.getToken())
                                 .apply();
 
-                        String info = "Đăng ký thành công!\n"
-                                + "User: " + res.getUser().getUsername() + "\n"
-                                + "Email: " + res.getUser().getEmail() + "\n"
-                                + "Token: " + res.getToken();
-
+//                        String info = "Đăng ký thành công!\n"
+//                                + "User: " + res.getUser().getUsername() + "\n"
+//                                + "Email: " + res.getUser().getEmail() + "\n"
+//                                + "Token: " + res.getToken();
+                        String info = "Đăng ký thành công!";
+                        Intent intent = new Intent(Register_Activity.this,Chat_Activity.class);
+                        startActivity(intent);
+                        finish();
                         Toast.makeText(Register_Activity.this, info, Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(Register_Activity.this,
-                                "Lỗi server: " + response.code(),
-                                Toast.LENGTH_SHORT).show();
+                        if (!response.isSuccessful() && response.errorBody() != null) {
+                            try {
+                                String errorStr = response.errorBody().string();
+                                JSONObject json = new JSONObject(errorStr);
+                                String errorMessage = json.optString("error", "Unknown error");
+                                Toast.makeText(Register_Activity.this,
+                                        "Error: " + errorMessage,
+                                        Toast.LENGTH_SHORT).show();
+                            } catch (IOException | JSONException e) {
+                                e.printStackTrace();
+                                Toast.makeText(Register_Activity.this,
+                                        "Lỗi server không xác định",
+                                        Toast.LENGTH_SHORT).show();
+                            }
+                        }
                     }
                 }
 
@@ -76,6 +99,7 @@ public class Register_Activity extends AppCompatActivity {
                     Toast.makeText(Register_Activity.this,
                             "Kết nối thất bại: " + t.getMessage(),
                             Toast.LENGTH_LONG).show();
+                    Log.d("Register_Activity", t.getMessage());
                 }
             });
         });

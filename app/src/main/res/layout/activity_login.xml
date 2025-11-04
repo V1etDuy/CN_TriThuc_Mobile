@@ -111,6 +111,16 @@
                 android:paddingEnd="12dp"
                 android:textSize="14sp"/>
 
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Invalid email or password, please try again"
+                android:textColor="#FF3B30"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                android:visibility="gone" />
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
@@ -142,6 +152,7 @@
                     android:textSize="16sp"
                     android:textColor="#7F7F7F"/>
                 <TextView
+                    android:id="@+id/tvSignup"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign up"
