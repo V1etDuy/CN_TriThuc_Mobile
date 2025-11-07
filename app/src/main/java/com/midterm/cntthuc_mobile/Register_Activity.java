@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.midterm.cntthuc_mobile.api_service.ApiClient;
 import com.midterm.cntthuc_mobile.api_service.ApiService;
+import com.midterm.cntthuc_mobile.api_service.TokenManager;
 import com.midterm.cntthuc_mobile.auth.SignUpRequest;
 import com.midterm.cntthuc_mobile.auth.SignUpResponse;
 
@@ -38,7 +39,7 @@ public class Register_Activity extends AppCompatActivity {
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
 
-        ApiService apiService = ApiClient.getClient().create(ApiService.class);
+        ApiService apiService = ApiClient.getClient(this).create(ApiService.class);
 
         signUpBtn.setOnClickListener(v -> {
             String username = etUsername.getText().toString().trim();
@@ -61,10 +62,8 @@ public class Register_Activity extends AppCompatActivity {
                     if (response.isSuccessful() && response.body() != null) {
                         SignUpResponse res = response.body();
                         // 👉 Lưu token vào SharedPreferences
-                        SharedPreferences prefs = getSharedPreferences("auth", MODE_PRIVATE);
-                        prefs.edit()
-                                .putString("token", res.getToken())
-                                .apply();
+                        TokenManager  tokenManager= TokenManager.getInstance(Register_Activity.this);
+                        tokenManager.saveToken(res.getToken());
 
 //                        String info = "Đăng ký thành công!\n"
 //                                + "User: " + res.getUser().getUsername() + "\n"

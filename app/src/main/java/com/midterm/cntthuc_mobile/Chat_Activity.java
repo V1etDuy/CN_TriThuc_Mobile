@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -37,11 +38,12 @@ public class Chat_Activity extends AppCompatActivity {
             PopupMenu popup = new PopupMenu(Chat_Activity.this, v);
             popup.getMenuInflater().inflate(R.menu.menu_user_options, popup.getMenu());
             popup.setOnMenuItemClickListener(item -> {
-                if (item.getItemId() == R.id.action_change_password) {
-                    Toast.makeText(Chat_Activity.this, "Đổi mật khẩu", Toast.LENGTH_SHORT).show();
+                if (item.getItemId() == R.id.action_profile) {
+                    Intent intent = new Intent(Chat_Activity.this, ProfileActivity.class);
+                    startActivity(intent);  // 👉 Mở trang Profile
                     return true;
                 } else if (item.getItemId() == R.id.action_logout) {
-                    Toast.makeText(Chat_Activity.this, "Đăng xuất", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Chat_Activity.this, "Log out", Toast.LENGTH_SHORT).show();
                     return true;
                 }
                 return false;
