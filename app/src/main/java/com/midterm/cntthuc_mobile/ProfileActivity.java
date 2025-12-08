@@ -68,7 +68,7 @@ public class ProfileActivity extends AppCompatActivity {
                 public void onResponse(Call<ChangeUsernameResponse> call, Response<ChangeUsernameResponse> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         ChangeUsernameResponse res = response.body();
-                        Toast.makeText(ProfileActivity.this, "Cập nhật thành công!", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ProfileActivity.this, "Update successfully!", Toast.LENGTH_SHORT).show();
                     } else {
                         if (response.errorBody() != null) {
                             try {
@@ -106,6 +106,11 @@ public class ProfileActivity extends AppCompatActivity {
             if (oldPassword.equals(newPassword)) {
                 Toast.makeText(this, "Old password and new password must not match", Toast.LENGTH_SHORT).show();
                 return;
+            }
+            if (oldPassword.length() < 6 || newPassword.length() < 6 ) {
+                // Hiển thị thông báo lỗi
+                Toast.makeText(this, "Password must have at least 6 characters.", Toast.LENGTH_SHORT).show();
+                return; // Dừng xử lý tiếp
             }
 
             // Tạo request body

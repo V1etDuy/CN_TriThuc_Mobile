@@ -25,15 +25,7 @@
                 android:layout_height="wrap_content"
                 android:padding="16dp">
 
-                <ImageButton
-                    android:id="@+id/btnBack"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/transparent"
-                    android:src="@drawable/baseline_arrow_back_ios_new_24"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -44,7 +36,7 @@
                 android:layout_below="@+id/constraintLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="39dp"
-                android:text="App name"
+                android:text="AKE APP"
                 android:textColor="@android:color/white"
                 android:textSize="28sp"
                 android:textStyle="bold" />
@@ -100,7 +92,6 @@
                 android:paddingEnd="12dp"
                 android:textSize="14sp"/>
 
-
             <EditText
                 android:id="@+id/etPassword"
                 android:layout_width="match_parent"
@@ -112,6 +103,16 @@
                 android:paddingStart="12dp"
                 android:paddingEnd="12dp"
                 android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Invalid email or password, please try again"
+                android:textColor="#FF3B30"
+                android:textSize="13sp"
+                android:layout_marginTop="4dp"
+                android:visibility="gone" />
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btnSignup"
@@ -136,6 +137,7 @@
                     android:textSize="16sp"
                     android:textColor="#7F7F7F"/>
                 <TextView
+                    android:id="@+id/sign_in"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Sign in here"
