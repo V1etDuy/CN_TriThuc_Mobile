@@ -50,6 +50,21 @@
             android:layout_weight="1"
             android:padding="8dp" />
 
+        <TextView
+            android:id="@+id/tvStatusReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textStyle="italic"
+            android:visibility="gone"
+            android:background="#EFEFEF"
+            android:text="AI Status: Searching..." />
+
         <!-- Ô nhập tin nhắn -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -72,8 +87,11 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginStart="8dp"
-                android:background="?attr/selectableItemBackgroundBorderless"
-                android:src="@drawable/send_icon"
+                android:padding="7dp"
+                android:background="@drawable/selector_send_background"
+                android:src="@drawable/arrow_send_ic"
+                app:tint="@color/selector_send_icon_color"
+                android:scaleType="centerInside"
                 android:contentDescription="Send"/>
         </LinearLayout>
     </LinearLayout>
@@ -90,7 +108,7 @@
 
     <TextView
             android:id="@+id/tvAppName"
-            android:text="APP NAME"
+            android:text="AKE APP"
             android:textSize="20sp"
             android:textStyle="bold"
             android:textColor="#00BFA6"

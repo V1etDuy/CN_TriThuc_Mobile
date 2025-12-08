@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.midterm.cntthuc_mobile.api_service.ApiClient;
@@ -28,6 +30,7 @@ import retrofit2.Response;
 public class Register_Activity extends AppCompatActivity {
     Button signUpBtn;
     EditText etUsername, etEmail, etPassword;
+    TextView sign_in, tvError;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class Register_Activity extends AppCompatActivity {
         etUsername = findViewById(R.id.etUsername);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
+        sign_in = findViewById(R.id.sign_in);
+        tvError = findViewById(R.id.tvError);
 
         ApiService apiService = ApiClient.getClient(this).create(ApiService.class);
 
@@ -47,9 +52,16 @@ public class Register_Activity extends AppCompatActivity {
             String password = etPassword.getText().toString().trim();
 
             if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Vui lòng nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Please fill in all information", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (password.length() < 6) {
+                // Hiển thị thông báo lỗi
+                tvError.setText("Password must have at least 6 characters.");
+                tvError.setVisibility(View.VISIBLE);
+                return; // Dừng xử lý tiếp
+            }
+            tvError.setVisibility(View.GONE);
 
             // Tạo request body
             SignUpRequest request = new SignUpRequest(username, email, password);
@@ -69,7 +81,7 @@ public class Register_Activity extends AppCompatActivity {
 //                                + "User: " + res.getUser().getUsername() + "\n"
 //                                + "Email: " + res.getUser().getEmail() + "\n"
 //                                + "Token: " + res.getToken();
-                        String info = "Đăng ký thành công!";
+                        String info = "Register successfully!";
                         Intent intent = new Intent(Register_Activity.this,Chat_Activity.class);
                         startActivity(intent);
                         finish();
@@ -102,6 +114,13 @@ public class Register_Activity extends AppCompatActivity {
                 }
             });
         });
+
+        sign_in.setOnClickListener(v -> {
+            Intent intent = new Intent(Register_Activity.this, Login_Activity.class);
+            startActivity(intent);
+            finish();
+        });
+
 
     }
 }

@@ -14,7 +14,8 @@ public class ApiClient {
                 .build();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.50.12:3000/")  // đổi thành server thật
+//                .baseUrl("http://192.168.50.13:3000/")  // đổi thành server thật
+                .baseUrl("http://kazekageiii.xyz:3001/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

@@ -27,6 +27,12 @@ public class AuthInterceptor implements Interceptor {
     public Response intercept(@NonNull Chain chain) throws IOException {
         TokenManager tokenManager = TokenManager.getInstance(context);
         String token = tokenManager.getToken();
+        Request request = chain.request();
+        String requestUrl = request.url().toString();
+
+        if (requestUrl.contains("/login") || requestUrl.contains("/register") || requestUrl.contains("/signup")) {
+            return chain.proceed(request);
+        }
 
         // Nếu không có token thì cho phép request tiếp tục
         if (token == null) {
